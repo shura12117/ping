@@ -1,8 +1,8 @@
 import requests
-import time
 
-while True:
-    # Будим ваш PHP-хендлер на Infinity Free
-    response = requests.get('https://t-e-t-o.ct.ws/ping.php')
+# Пробуем HTTP (а не HTTPS)
+try:
+    response = requests.get('http://t-e-t-o.ct.ws/ping.php', timeout=10)
     print(response.text)
-    time.sleep(300)  # 5 минут
+except Exception as e:
+    print(f"Ошибка: {e}")
